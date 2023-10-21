@@ -22,16 +22,15 @@ export class WordSquare {
 
     for (let i = 0; i < this.size; i++) {
       let startChars = "";
-      const n = result.length;
-      for (let j = 0; j < n; j++) {
-        startChars = startChars.concat(result[j].charAt(n));
+      for (let j = 0; j < i; j++) {
+        startChars = startChars.concat(result[j].charAt(i));
       }
       for (const word of words) {
         if (!word.startsWith(startChars)) {
           continue;
         }
 
-        const foundChar = findChar(word.charAt(n), remainingChars, 1);
+        const foundChar = findChar(word.charAt(i), remainingChars, 1);
         if (!foundChar.found) {
           continue;
         }
@@ -40,7 +39,7 @@ export class WordSquare {
           word,
           remainingChars,
           2,
-          startChars.concat(word.charAt(n))
+          startChars.concat(word.charAt(i))
         );
         if (found.word === word) {
           result.push(found.word);
