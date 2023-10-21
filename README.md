@@ -2,6 +2,16 @@
 
 A project to find word squares from an input string and a dictionary.
 
+## Usage
+
+```shell
+npm ci
+npm run build
+
+node dist/index.js -h
+node dist/index.js <size> <input>
+```
+
 ## Problem breakdown
 
 The first test case is a 4x4 square and a list of characters. The command and output should look like the below.
