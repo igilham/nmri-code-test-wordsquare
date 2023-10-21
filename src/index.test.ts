@@ -1,14 +1,22 @@
 import { WordSquare } from "./index";
 
 describe("WordSquare", () => {
-  test("parses 2x2 input", () => {
-    const ws = WordSquare.parse(2, "aaaa");
-    expect(ws.size).toBe(2);
-    expect(ws.input).toBe("aaaa");
+  test.each([
+    { size: 2, input: "aaaa" },
+    { size: 7, input: "aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy" },
+  ])("parses size $size input $input", ({ size, input }) => {
+    const ws = WordSquare.parse(size, input);
+    expect(ws.size).toBe(size);
+    expect(ws.input).toBe(input);
   });
 
-  test.each([{ size: 2, input: "aaaaa" }])(
-    "does not parse input if the string is the wrong length",
+  test.each([
+    { size: 2, input: "aaa" },
+    { size: 2, input: "aaaaa" },
+    { size: 7, input: "aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyy" },
+    { size: 7, input: "aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyyy" },
+  ])(
+    "errors if the input string is the wrong length, size=$size, input=$input",
     ({ size, input }) => {
       expect(() => WordSquare.parse(size, input)).toThrow("Invalid input");
     }
