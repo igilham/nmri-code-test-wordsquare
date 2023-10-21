@@ -16,5 +16,7 @@ export function findWord(
   if (found === word) {
     return { word: found, remainingChars };
   }
+
+  // warning: node does not implement tail recursion - max depth is around 512 stack entries
   return findWord(word, remainingChars, found);
 }
