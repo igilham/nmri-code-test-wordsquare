@@ -26,4 +26,12 @@ The second word must start with the second letter of the first word, add a singl
 
 This generalises to the nth word, which must start with the nth letter of the first word, add a single letter which may be unique, then all subsequent letters must appear at least twice in the input.
 
+## Log
+
+- Set up an empty typescript project to get started with.
+- Added a hellow world function and test case to ensure the tooling was set up correctly.
+- Parsed the input and validated the arguments.
+- Explored the structure of the problem with a top-level `solve`` function in order to get a feel for it.
+- Decided to split out a function to find words from an input string, slicing the string to remove the found characters and produce a remainder.
+
 [words]: https://norvig.com/ngrams/enable1.txt
