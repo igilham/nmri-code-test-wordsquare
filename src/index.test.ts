@@ -5,7 +5,7 @@ describe("WordSquare", () => {
     { size: 2, input: "aaaa" },
     { size: 7, input: "aaaaaaaaabbeeeeeeedddddggmmlloooonnssssrrrruvvyyy" },
   ])("parses size $size input $input", ({ size, input }) => {
-    const ws = WordSquare.parse(size, input);
+    const ws = WordSquare.parse(size, input, []);
     expect(ws.size).toBe(size);
     expect(ws.input).toBe(input);
   });
@@ -18,7 +18,7 @@ describe("WordSquare", () => {
   ])(
     "errors if the input string is the wrong length, size=$size, input=$input",
     ({ size, input }) => {
-      expect(() => WordSquare.parse(size, input)).toThrow("Invalid input");
+      expect(() => WordSquare.parse(size, input, [])).toThrow("Invalid input");
     }
   );
 });
