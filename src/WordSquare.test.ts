@@ -22,11 +22,19 @@ describe("WordSquare", () => {
     }
   );
 
-  test.skip.each([{ size: 2, input: "aaaa", dictionary: ["aa", "aa"] }])(
+  test.each([
+    { size: 2, input: "aaaa", dictionary: ["aa", "aa"], output: ["aa", "aa"] },
+    {
+      size: 4,
+      input: "eeeeddoonnnsssrv",
+      dictionary: ["rose", "oven", "send", "ends"],
+      output: ["rose", "oven", "send", "ends"],
+    },
+  ])(
     "can solve a $size x $size word square",
-    ({ size, input, dictionary }) => {
+    ({ size, input, dictionary, output }) => {
       const ws = WordSquare.parse(size, input, dictionary);
-      expect(ws.solve()).toEqual(["aa", "aa"]);
+      expect(ws.solve()).toEqual(output);
     }
   );
 });

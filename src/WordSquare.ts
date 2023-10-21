@@ -1,3 +1,5 @@
+import { findChar, findWord } from "./findWord";
+
 export class WordSquare {
   static parse(size: number, input: string, dictionary: string[]): WordSquare {
     if (input.length !== size * size) {
@@ -13,25 +15,19 @@ export class WordSquare {
   ) {}
 
   solve(): string[] {
-    // const words = this.dictionary.filter((word) => word.length === this.size);
+    const words = this.dictionary.filter((word) => word.length === this.size);
 
-    // // first word
-    // for (const word of words) {
-    //   const result = [word];
-    //   let remainingChars = this.input;
-    //   let pos = remainingChars.indexOf(word.charAt(0));
-    //   if (pos === -1) {
-    //     continue;
-    //   }
-
-    //   if (remainingChars.includes(word.charAt(0))) {
-    //   }
-
-    //   if (magic()) {
-    //     return result;
-    //   }
-    // }
-
+    // first word
+    const result: string[] = [];
+    for (const word of words) {
+      const firstChar = word.charAt(0);
+      const remainderAfterFirstChar = findChar(firstChar, this.input, 1);
+      const found = findWord(word, remainderAfterFirstChar, 2, firstChar);
+      if (found.word === word) {
+        result.push(found.word);
+        return result;
+      }
+    }
     // no solution found
     return [];
   }
