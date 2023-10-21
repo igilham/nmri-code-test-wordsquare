@@ -30,6 +30,12 @@ describe("WordSquare", () => {
       dictionary: ["rose", "oven", "send", "ends"],
       output: ["rose", "oven", "send", "ends"],
     },
+    {
+      size: 5,
+      input: "aaaeeeefhhmoonssrrrrttttw",
+      dictionary: ["feast", "earth", "armor", "stone", "threw"],
+      output: ["feast", "earth", "armor", "stone", "threw"],
+    },
   ])(
     "can solve a $size x $size word square",
     ({ size, input, dictionary, output }) => {
