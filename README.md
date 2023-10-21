@@ -33,5 +33,6 @@ This generalises to the nth word, which must start with the nth letter of the fi
 - Parsed the input and validated the arguments.
 - Explored the structure of the problem with a top-level `solve`` function in order to get a feel for it.
 - Decided to split out a function to find words from an input string, slicing the string to remove the found characters and produce a remainder.
+- Split out function to find individual characters n times and return the remainder of an input string.
 
 [words]: https://norvig.com/ngrams/enable1.txt
