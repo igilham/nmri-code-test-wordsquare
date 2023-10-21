@@ -46,7 +46,10 @@ This generalises to the nth word, which must start with the nth letter of the fi
 - Split out function to find individual characters n times and return the remainder of an input string.
 - Add some tests to explore how to find the correct words, given the rules of the game
 - Modify wordsquare to solve for the rules using a minimal dictionary.
-- Add some tests to ensure solution works for the example test cases
+- Add some tests to ensure solution works for the example test cases.
+- Write up some notes and next steps
+- Add a basic CLI app as requested.
+- Add some simple usage docs to the README.
 
 ## Thoughts and next steps
 
