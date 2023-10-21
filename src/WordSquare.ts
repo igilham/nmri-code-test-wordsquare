@@ -25,6 +25,8 @@ export class WordSquare {
       for (let j = 0; j < i; j++) {
         startChars = startChars.concat(result[j].charAt(i));
       }
+
+      // find the next valid word from the dictionary
       for (const word of words) {
         if (!word.startsWith(startChars)) {
           continue;
@@ -48,6 +50,7 @@ export class WordSquare {
       }
     }
 
+    // Missing error response if we have not managed to fill the square
     return result;
   }
 }
