@@ -1,4 +1,4 @@
-import { WordSquare, findWord } from "./index";
+import { WordSquare } from "./WordSquare";
 
 describe("WordSquare", () => {
   test.each([
@@ -21,11 +21,6 @@ describe("WordSquare", () => {
       expect(() => WordSquare.parse(size, input, [])).toThrow("Invalid input");
     }
   );
-
-  test("can find a word and slice the remaining chars", () => {
-    const result = findWord("aa", "aaaa");
-    expect(result).toEqual({ word: "aa", remainingChars: "aa" });
-  });
 
   test.skip.each([{ size: 2, input: "aaaa", dictionary: ["aa", "aa"] }])(
     "can solve a $size x $size word square",
