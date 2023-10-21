@@ -1,7 +1,7 @@
-import { hello } from "./index";
+import { WordSquare } from "./index";
 
-describe("hello", () => {
-  test("returns hello world", () => {
-    expect(hello()).toBe("Hello World");
+describe("WordSquare", () => {
+  test("parses the input", () => {
+    const ws = WordSquare.parse(2, "aaaa");
   });
 });
