@@ -36,9 +36,6 @@ export class WordSquare {
           continue;
         }
         remainingChars = foundChar.remainingChars;
-        console.log(
-          `finding ${word} in ${remainingChars} with startChars ${startChars}`
-        );
         const found = findWord(
           word,
           remainingChars,
