@@ -34,5 +34,7 @@ This generalises to the nth word, which must start with the nth letter of the fi
 - Explored the structure of the problem with a top-level `solve`` function in order to get a feel for it.
 - Decided to split out a function to find words from an input string, slicing the string to remove the found characters and produce a remainder.
 - Split out function to find individual characters n times and return the remainder of an input string.
+- Add some tests to explore how to find the correct words, given the rules of the game
+- Modify wordsquare to solve for the rules using a minimal dictionary.
 
 [words]: https://norvig.com/ngrams/enable1.txt

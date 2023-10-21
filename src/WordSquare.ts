@@ -27,20 +27,23 @@ export class WordSquare {
         startChars = startChars.concat(result[j].charAt(n));
       }
       for (const word of words) {
-        const foundChar = findChar(
-          word.charAt(startChars.length),
-          remainingChars,
-          1
-        );
+        if (!word.startsWith(startChars)) {
+          continue;
+        }
+
+        const foundChar = findChar(word.charAt(n), remainingChars, 1);
         if (!foundChar.found) {
           continue;
         }
         remainingChars = foundChar.remainingChars;
+        console.log(
+          `finding ${word} in ${remainingChars} with startChars ${startChars}`
+        );
         const found = findWord(
           word,
           remainingChars,
           2,
-          startChars.concat(word.charAt(startChars.length))
+          startChars.concat(word.charAt(n))
         );
         if (found.word === word) {
           result.push(found.word);
