@@ -47,4 +47,13 @@ describe("findWord", () => {
     );
     expect(result).toEqual({ word: "rose", remainingChars: "eeddnnnsv" });
   });
+
+  // follows on from the previous test to show how to get the next word
+  test("can find a word by extracting the first char(s) once then the rest twice", () => {
+    const word = "oven";
+    const input = "eeddnnnsv";
+    const remAfterFirst = findChar(word.charAt(1), input, 1);
+    const result = findWord(word, remAfterFirst.remainingChars, 2, "ov");
+    expect(result).toEqual({ word: "oven", remainingChars: "ddns" });
+  });
 });

@@ -17,18 +17,38 @@ export class WordSquare {
   solve(): string[] {
     const words = this.dictionary.filter((word) => word.length === this.size);
 
-    // first word
     const result: string[] = [];
-    for (const word of words) {
-      const firstChar = word.charAt(0);
-      const remainderAfterFirstChar = findChar(firstChar, this.input, 1);
-      const found = findWord(word, remainderAfterFirstChar, 2, firstChar);
-      if (found.word === word) {
-        result.push(found.word);
-        return result;
+    let remainingChars = this.input;
+
+    for (let i = 0; i < this.size; i++) {
+      let startChars = "";
+      const n = result.length;
+      for (let j = 0; j < n; j++) {
+        startChars = startChars.concat(result[j].charAt(n));
+      }
+      for (const word of words) {
+        const foundChar = findChar(
+          word.charAt(startChars.length),
+          remainingChars,
+          1
+        );
+        if (!foundChar.found) {
+          continue;
+        }
+        remainingChars = foundChar.remainingChars;
+        const found = findWord(
+          word,
+          remainingChars,
+          2,
+          startChars.concat(word.charAt(startChars.length))
+        );
+        if (found.word === word) {
+          result.push(found.word);
+          break;
+        }
       }
     }
-    // no solution found
-    return [];
+
+    return result;
   }
 }
